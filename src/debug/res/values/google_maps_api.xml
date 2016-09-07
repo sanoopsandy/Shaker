@@ -1,0 +1,18 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=89:18:0C:30:17:04:25:0D:09:93:B6:8D:3B:C4:27:3E:96:4A:E4:4F%3Bcom.example.sanoop.shaker
+
+    You can also add your credentials to an existing key, using this line:
+    89:18:0C:30:17:04:25:0D:09:93:B6:8D:3B:C4:27:3E:96:4A:E4:4F;com.example.sanoop.shaker
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" translatable="false" templateMergeStrategy="preserve">
+        AIzaSyD-tNXpjRPNQgcF80oLuuRH-pq6w6xNdzU
+    </string>
+</resources>

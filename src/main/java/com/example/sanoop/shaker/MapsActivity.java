@@ -1,6 +1,7 @@
 package com.example.sanoop.shaker;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -15,8 +16,13 @@ import android.location.LocationManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
+
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -31,7 +37,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-public class MapsActivity extends FragmentActivity implements LocationListener {
+public class MapsActivity extends AppCompatActivity  implements LocationListener {
     int MY_PERMISSION_ACCESS_COURSE_LOCATION = 0;
     private GoogleMap mMap;
     private ArrayList<LatLng> latlngs = new ArrayList<>();
@@ -45,7 +51,9 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationIcon(R.drawable.nav_icon);
         Intent intent = new Intent(this, ShakeService.class);
         startService(intent);
 
@@ -136,8 +144,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
         }
         return bestLocation;
     }
-
-
+    
 
     @Override
     public void onLocationChanged(Location location) {

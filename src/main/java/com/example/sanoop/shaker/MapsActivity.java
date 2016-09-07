@@ -25,7 +25,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -66,7 +68,7 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
             @Override
             public void onShake(float force) {
                 Location location = mMap.getMyLocation();
-                if(location != null) {
+                if (location != null) {
                     latlngs.add(new LatLng(location.getLatitude(), location.getLongitude()));
                     setMarker(location);
                 }
@@ -145,8 +147,11 @@ public class MapsActivity extends FragmentActivity implements LocationListener {
     private void setMarker(Location location){
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
+        Date dt = new Date(location.getTime());
+        SimpleDateFormat sdf = new SimpleDateFormat("hh:mm aa");
         LatLng latLng = new LatLng(latitude, longitude);
         options.title("Position " + latlngs.size());
+        options.snippet("Time: " + sdf.format(dt));
         options.position(latLng);
         mMap.addMarker(options);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));

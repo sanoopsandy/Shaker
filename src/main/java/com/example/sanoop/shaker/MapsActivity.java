@@ -54,7 +54,9 @@ public class MapsActivity extends AppCompatActivity  implements LocationListener
         Toolbar toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(toolbar);
         toolbar.setNavigationIcon(R.drawable.nav_icon);
+
         Intent intent = new Intent(this, ShakeService.class);
+
         startService(intent);
 
         int status = GooglePlayServicesUtil.isGooglePlayServicesAvailable(getBaseContext());
@@ -144,7 +146,7 @@ public class MapsActivity extends AppCompatActivity  implements LocationListener
         }
         return bestLocation;
     }
-    
+
 
     @Override
     public void onLocationChanged(Location location) {
